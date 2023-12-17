@@ -77,3 +77,20 @@ println x
 x = "colourour".replaceAll(/ou/, "o")
 println x
 
+// Functions
+def foo() {
+  "Hello world"
+}
+
+println foo()
+
+// Closures
+square = { it * it }
+println square(3)
+
+squared = [1,2,3,4].collect(square)
+print squared
+
+// Map closures
+mul = { a, b -> println a*b }
+mul(3, 4)
