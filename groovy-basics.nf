@@ -41,3 +41,11 @@ println new_scores
 (a, b, c) = [1, 2, 3]
 assert a == 1 && b == 2 && c == 3
 
+// Conditional
+x = Math.random()
+if (x<0.5) {
+  println "less"
+} else {
+  println "more"
+}
+
