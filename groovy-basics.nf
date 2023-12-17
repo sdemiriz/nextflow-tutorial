@@ -56,3 +56,24 @@ println "The $foxtype ${foxcolor.join()} fox"
 
 x = 'Hello'
 println '$x + $y'
+
+x = """
+Long string
+with many lines
+"""
+println x
+
+x = """
+Long string \
+on one line 
+"""
+println x
+
+assert 'foo' =~ /foo/
+assert 'foobar' ==~ /foo.+/
+
+x = "colour".replaceFirst(/ou/, "o")
+println x
+x = "colourour".replaceAll(/ou/, "o")
+println x
+
