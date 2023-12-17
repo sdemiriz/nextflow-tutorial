@@ -17,7 +17,7 @@ process convertToUpper {
     stdout
 
     """
-    cat $x | tr '[a-z]' '[A-Z]'
+    rev $x
     """
 }
 
