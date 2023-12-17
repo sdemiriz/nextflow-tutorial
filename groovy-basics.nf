@@ -36,3 +36,8 @@ println scores
 
 new_scores = scores + ["pete": 3, "matt": 155]
 println new_scores
+
+// Multiple assignment
+(a, b, c) = [1, 2, 3]
+assert a == 1 && b == 2 && c == 3
+
