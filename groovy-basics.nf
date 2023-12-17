@@ -22,3 +22,17 @@ println myList
 println myList[0]
 println myList[-1]
 println myList.size()
+
+// Working with maps
+scores = ["brett": 100, "pete":"did not finish", "andrew": 12.1234]
+println scores
+println scores["pete"]
+println scores.pete
+
+scores["pete"] = 42
+scores["john"] = 60
+
+println scores
+
+new_scores = scores + ["pete": 3, "matt": 155]
+println new_scores
