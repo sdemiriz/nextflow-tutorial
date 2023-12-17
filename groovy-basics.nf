@@ -49,3 +49,10 @@ if (x<0.5) {
   println "more"
 }
 
+// Strings and interpolation
+foxtype = "quick"
+foxcolor = ['b', 'r', 'o', 'w', 'n']
+println "The $foxtype ${foxcolor.join()} fox"
+
+x = 'Hello'
+println '$x + $y'
