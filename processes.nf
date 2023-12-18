@@ -35,7 +35,14 @@ process Inputs {
   "echo process job $x"
 }
 
+process Inputs2 {
+  input:
+  path textfile
+
+  "cat ${textfile}"
+}
+
 workflow { 
-  def num = Channel.of(1, 2, 3)
-  Inputs(num)
+  def files = Channel.fromPath("./text-file")
+  Inputs2(files)
 }
