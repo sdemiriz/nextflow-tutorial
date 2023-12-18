@@ -37,9 +37,9 @@ process Inputs {
 
 process Inputs2 {
   input:
-  path textfile
+  path 'text-file'
 
-  "cat ${textfile}"
+  "cat text-file"
 }
 
 workflow { 
