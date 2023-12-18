@@ -42,7 +42,42 @@ process Inputs2 {
   "cat text-file"
 }
 
+process multipleInputChannels {
+  input:
+  val x
+  val y
+
+  script:
+  """
+  echo $x and $y
+  """
+}
+
+process Output {
+  input:
+  each x
+
+  output:
+  val x
+
+  """
+  echo $x > file
+  """
+}
+
+process multipleOutputs {
+  input:
+  val x
+
+  output:
+  path "${x}.txt"
+
+  """
+  echo $x > "${x}.txt"
+  """
+}
+
 workflow { 
-  def files = Channel.fromPath("./text-file")
-  Inputs2(files)
+  def x = Channel.of("a", "b", "c")
+  multipleOutputs(x)
 }
