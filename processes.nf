@@ -14,7 +14,22 @@ process doMore {
   """
 }
 
+mode = "a"
+process conditional {
+  script:
+    if ( mode == "a" ) {
+      """
+      echo a
+      """
+    } else if ( mode == "b" ) {
+      """
+      echo b
+      """
+    }
+}
+
 workflow { 
   sayHello()
   doMore()
+  conditional()
 }
