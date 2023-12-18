@@ -28,8 +28,14 @@ process conditional {
     }
 }
 
+process Inputs {
+  input:
+  val x
+
+  "echo process job $x"
+}
+
 workflow { 
-  sayHello()
-  doMore()
-  conditional()
+  def num = Channel.of(1, 2, 3)
+  Inputs(num)
 }
