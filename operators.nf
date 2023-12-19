@@ -55,3 +55,9 @@ tgt = Channel.of([1, 'A'], [2, 'B'])
 
 src.cross(tgt).view {"src x tgt: $it"}
 tgt.cross(src).view {"tgt x src: $it"}
+
+Channel
+  .of(1,1,1,2)
+  .distinct()
+  .subscribe onNext: {println "distinct: $it"}
+
