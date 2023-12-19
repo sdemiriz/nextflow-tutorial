@@ -11,7 +11,7 @@ Channel.from(['a', 'b'], ['c','d'], ['e','f']).view{"from2: $it"}
 Channel.from("A".."Z").view{"range: $it"}
 
 // Channel from path
-Channel.fromPath("/text-file").view{"$it"}
+Channel.fromPath("/text-file").view()
 
 // Channel of
 Channel.of(9, 10, 11, 12).view()
