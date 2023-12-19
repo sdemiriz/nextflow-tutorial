@@ -61,3 +61,19 @@ Channel
   .distinct()
   .subscribe onNext: {println "distinct: $it"}
 
+Channel
+  .of(1,2,3)
+  .map {it^2}
+  .dump{tag: "dump"}
+
+Channel
+  .of('a', 'b', 'ca', 'caac')
+  .filter(~/c.*/)
+  .view{"filter: $it"}
+
+Channel
+  .of(1,2,3)
+  .first()
+  .view{"first: $it"}
+
+
