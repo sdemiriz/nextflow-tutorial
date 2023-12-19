@@ -41,3 +41,13 @@ let = Channel.of('a', 'b', 'c')
 
 num.combine(let).view()
 
+Channel
+  .of(1,2,3,4,5)
+  .count()
+  .view{"count: $it"}
+
+src = Channel.of([1, 'a'], [2, 'b'], [2, 'c'])
+tgt = Channel.of([1, 'A'], [2, 'B'])
+
+src.cross(tgt).view {"src x tgt: $it"}
+tgt.cross(src).view {"tgt x src: $it"}
