@@ -38,8 +38,12 @@ Channel
 
 num = Channel.of(1, 2, 3)
 let = Channel.of('a', 'b', 'c')
+num.combine(let).view{"combine: $it"}
 
-num.combine(let).view()
+a = Channel.of(1, 2, 3)
+b = Channel.of('a', 'b', 'c')
+c = Channel.of('p', 'q')
+c.concat(b,a).view{"concat: $it"}
 
 Channel
   .of(1,2,3,4,5)
