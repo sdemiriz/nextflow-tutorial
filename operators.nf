@@ -76,4 +76,17 @@ Channel
   .first()
   .view{"first: $it"}
 
+Channel
+  .of(1,2,3)
+  .flatMap {it -> [it^2, it^3]}
+  .subscribe onNext: {println "flatMap: $it"}
 
+Channel
+  .of([1], [[2, 3], 4])
+  .flatten()
+  .view{"flatten: $it"}
+
+Channel
+  .of([1, 'a'], [2, 'b'], [1, 'c'])
+  .groupTuple()
+  .view{"groupTuple: $it"}
