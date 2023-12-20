@@ -141,3 +141,52 @@ Channel
   .randomSample(1)
   .view{"randomSample: $it"}
 
+Channel
+  .of( 1, 2, 3)
+  .reduce{a,b -> println "a: $a b: $b"; return a+b}
+  .view{"reduce: $it"}
+
+Channel.of(1, 2, 3).set{set}
+set.view{"set: $it"}
+
+src = Channel.of('a', 'b', 'c')
+src.subscribe{println "subscribe: $it"}
+
+Channel
+  .of(1, 2, 3, 4)
+  .sum()
+  .view{"sum: $it"}
+
+Channel
+  .of(1, 2, 3, 4)
+  .take(3)
+  .subscribe onNext: {println "take: $it"}
+
+Channel
+  .of(1, 2, 3)
+  .tap{log1}
+  .map{it*2}
+  .tap{log2}
+
+log1.view{"tap log1: $it"}
+log2.view{"tap log2: $it"}
+
+Channel
+  .of(1, 2, 3, 4)
+  .toList()
+  .view{"toList: $it"}
+
+Channel
+    .of(
+        [1, ['A', 'B', 'C']],
+        [2, ['C', 'A']],
+        [3, ['B', 'D']]
+    )
+    .transpose()
+    .view{"transpose: $it"}
+
+Channel
+  .of(1, 1, 1, 1, 1, 2, 3, 4)
+  .unique()
+  .toList()
+  .view{"unique: $it"}
