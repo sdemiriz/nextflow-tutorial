@@ -95,3 +95,30 @@ a = Channel.of([1, 'a'], [2, 'b'], [3, 'c'])
 b = Channel.of([1, 'x'], [2, 'y'], [3, 'z'])
 
 a.join(b).view{"join: $it"}
+
+Channel
+  .of(1, 2, 3, 4, 5, 6)
+  .last()
+  .view{"last: $it"}
+
+Channel
+  .of(1, 2, 3)
+  .map{it*it}
+  .view{"map: $it"}
+
+Channel
+  .of(1, 2, 3)
+  .max()
+  .view{"max: $it"}
+
+Channel
+  .of(1, 2, 3)
+  .max()
+  .view{"min: $it"}
+
+odds = Channel.of(1, 3, 5)
+evens = Channel.of(2, 4)
+
+odds.merge(evens).view{"merge: $it"}
+
+
