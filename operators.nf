@@ -90,3 +90,8 @@ Channel
   .of([1, 'a'], [2, 'b'], [1, 'c'])
   .groupTuple()
   .view{"groupTuple: $it"}
+
+a = Channel.of([1, 'a'], [2, 'b'], [3, 'c'])
+b = Channel.of([1, 'x'], [2, 'y'], [3, 'z'])
+
+a.join(b).view{"join: $it"}
