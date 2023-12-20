@@ -188,5 +188,4 @@ Channel
 Channel
   .of(1, 1, 1, 1, 1, 2, 3, 4)
   .unique()
-  .toList()
   .view{"unique: $it"}
