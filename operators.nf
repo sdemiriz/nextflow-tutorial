@@ -121,4 +121,23 @@ evens = Channel.of(2, 4)
 
 odds.merge(evens).view{"merge: $it"}
 
+c1 = Channel.of(1)
+c2 = Channel.of(2)
+c3 = Channel.of(3)
+c1.mix(c2, c3).view{"mix: $it"}
+
+Channel.of(1, 2, 3, 4)
+  .multiMap { it ->
+    foo: it+1
+    bar: it*it
+  }
+  .set { result }
+
+result.foo.view{"multiMap foo: $it"}
+result.bar.view{"multiMap bar: $it"}
+
+Channel
+  .of(1..100)
+  .randomSample(1)
+  .view{"randomSample: $it"}
 
